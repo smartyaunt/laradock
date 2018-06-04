@@ -298,9 +298,9 @@ ARG PHP_VERSION=${PHP_VERSION}
 
 RUN if [ ${INSTALL_PHPREDIS} = true ]; then \
     # Install Php Redis extension
-    RUN pecl install redis-3.1.5.tgz
-    && rm -rf redis-3.1.5.tgz
-    && docker-php-ext-enable redis \
+    RUN pecl install redis-3.1.5.tgz && \
+    rm -rf redis-3.1.5.tgz && \
+    docker-php-ext-enable redis \
 
 #    printf "\n" | pecl -q install -o -f redis && \
 #    echo "extension=redis.so" >> /etc/php/${PHP_VERSION}/mods-available/redis.ini && \
