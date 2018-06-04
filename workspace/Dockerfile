@@ -298,15 +298,15 @@ ARG PHP_VERSION=${PHP_VERSION}
 
 RUN if [ ${INSTALL_PHPREDIS} = true ]; then \
     # Install Php Redis extension
-    apt-get install php-dev php-pear autoconf automake libtool -y && \
-    pecl -q install redis-3.1.5.tgz && \
-    echo "extension=redis.so" >> /etc/php/${PHP_VERSION}/mods-available/redis.ini \
+#    apt-get install php-dev php-pear autoconf automake libtool -y && \
+#    pecl -q install redis-3.1.5.tgz && \
+#    echo "extension=redis.so" >> /etc/php/${PHP_VERSION}/mods-available/redis.ini \
 #    rm -rf redis-3.1.5.tgz && \
 #    docker-php-ext-enable redis \
 
-#    printf "\n" | pecl -q install -o -f redis && \
-#    echo "extension=redis.so" >> /etc/php/${PHP_VERSION}/mods-available/redis.ini && \
-#    phpenmod redis \
+    printf "\n" | pecl -q install -o -f redis && \
+    echo "extension=redis.so" >> /etc/php/${PHP_VERSION}/mods-available/redis.ini && \
+    phpenmod redis \
 ;fi
 
 ###########################################################################
