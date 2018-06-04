@@ -352,4 +352,5 @@ SOLR_DATAIMPORTHANDLER_MYSQL=false
 
 
 ### proxy ######################################################
-http_proxy=http://10.0.1.23:3128
+http_proxy=http://10.0.75.1:1080
+
