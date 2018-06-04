@@ -70,8 +70,6 @@ ENV TZ ${TZ}
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN pear config-set http_proxy ""
-
 ###########################################################################
 # User Aliases
 ###########################################################################
