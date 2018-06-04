@@ -89,6 +89,12 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
     echo "source ~/aliases.sh" >> ~/.bashrc && \
 	echo "" >> ~/.bashrc
 
+RUN if [ "${http_proxy}" != "" ]; then \
+    # Needed for pecl to succeed
+    pear config-set http_proxy ${http_proxy} \
+;fi
+
+
 USER laradock
 
 RUN echo "" >> ~/.bashrc && \

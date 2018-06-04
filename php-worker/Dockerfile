@@ -9,6 +9,12 @@ FROM php:${PHP_VERSION}-alpine
 
 LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 
+RUN if [ "${http_proxy}" != "" ]; then \
+    # Needed for pecl to succeed
+    pear config-set http_proxy ${http_proxy} \
+;fi
+
+
 RUN apk --update add wget \
   curl \
   git \

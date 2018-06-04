@@ -110,6 +110,7 @@ services:
       build:
         context: ./php-fpm
         args:
+          - http_proxy=${http_proxy}
           - PHP_VERSION=${PHP_VERSION}
           - INSTALL_XDEBUG=${PHP_FPM_INSTALL_XDEBUG}
           - INSTALL_BLACKFIRE=${INSTALL_BLACKFIRE}

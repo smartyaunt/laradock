@@ -24,7 +24,10 @@ LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 RUN apt-get update -yqq && \
     pecl channel-update pecl.php.net
 
-RUN pear config-set http_proxy ""
+RUN if [ "${http_proxy}" != "" ]; then \
+    # Needed for pecl to succeed
+    pear config-set http_proxy ${http_proxy} \
+;fi
 
 #
 #--------------------------------------------------------------------------
